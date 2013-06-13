@@ -1,6 +1,5 @@
-define(function (require) {
-    var util = require("sugar-web/graphics/util");
-    var radioButtonsGroup = require("sugar-web/graphics/radiobuttonsgroup");
+define(["sugar-web/graphics/radiobuttonsgroup"], function (
+    radioButtonsGroup) {
 
     beforeEach(function () {
         elem1 = document.createElement('button');
@@ -35,7 +34,7 @@ define(function (require) {
             var radio = new radioButtonsGroup.RadioButtonsGroup(
             [elem1, elem2, elem3]);
             var elem = radio.getActive();
-            expect(util.hasClass(elem, 'active')).toBe(true);
+            expect(elem.classList.contains('active')).toBe(true);
         });
 
         it("should change the active one on click", function () {
@@ -61,7 +60,7 @@ define(function (require) {
             runs(function () {
                 var elem = radio.getActive();
                 expect(elem).toBe(elem2);
-                expect(util.hasClass(elem, 'active')).toBe(true);
+                expect(elem.classList.contains('active')).toBe(true);
             });
 
             // now let's click elem1
@@ -83,7 +82,7 @@ define(function (require) {
             runs(function () {
                 var elem = radio.getActive();
                 expect(elem).toBe(elem1);
-                expect(util.hasClass(elem, 'active')).toBe(true);
+                expect(elem.classList.contains('active')).toBe(true);
             });
         });
 
