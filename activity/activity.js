@@ -54,6 +54,18 @@ define(["webL10n",
                 });
             });
         });
+
+        function onPause() {
+            // FIXME store data
+            console.log("activity.pause");
+        }
+
+        function onResume() {
+            console.log("activity.resume");
+        }
+
+        bus.onNotification("activity.pause", onPause);
+        bus.onNotification("activity.resume", onResume);
     };
 
     activity.getDatastoreObject = function () {
