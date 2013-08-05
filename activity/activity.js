@@ -64,8 +64,15 @@ define(["webL10n",
             console.log("activity.resume");
         }
 
+        function onStop() {
+            // FIXME store data
+            console.log("activity.stop");
+            activity.close(function () {});
+        }
+
         bus.onNotification("activity.pause", onPause);
         bus.onNotification("activity.resume", onResume);
+        bus.onNotification("activity.stop", onStop);
     };
 
     activity.getDatastoreObject = function () {
