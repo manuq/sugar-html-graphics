@@ -190,7 +190,9 @@ define(["sugar-web/env"], function (env) {
 
             if (parsed.method) {
                 var notificationCallback = notificationCallbacks[parsed.method];
-                notificationCallback(parsed.params);
+                if (notificationCallback !== undefined) {
+                    notificationCallback(parsed.params);
+                }
                 return;
             }
 
